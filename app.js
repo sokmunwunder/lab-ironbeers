@@ -38,11 +38,22 @@ app.get('/beers', (req, res) => {
 });
 
 app.get('/random-beers', (req, res) => {
-  res.render('randomBeers', {
-    pageTitle: 'Random Beers'
-  });
+  punkAPI
+    .getRandom()
+    .then(responseFromAPI => {
+      console.log(responseFromAPI);
+      res.render('randomBeers', {
+        pageTitle: 'Random Beers',
+        responseFromAPI: responseFromAPI[0]
+      });
+    })
+    .catch(error => console.log(error));
 });
 
 app.listen(3000, () => console.log('🏃‍ on port 3000'));
 
-/* app.get('/beers', (req, res) => {   punkAPI     .getBeers()     .then(beersFromApi => {       //console.log('Beers from the database: ', beersFromApi);       res.render('beers', {         beersList: beersFromApi       });     })     .catch(error => console.log(error)); }); */
+/*app.get('/random-beers', (req, res) => {
+  res.render('randomBeers', {
+    pageTitle: 'Random Beers'
+  });
+});*/
