@@ -5,3 +5,14 @@ dark-blue: #0a2c42;
 grey: #bfbfbf;
 font-family: Arial, Helvetica, sans-serif;
 */
+body {
+  font-family: sans-serif;
+}
+
+.navbar-layout {
+  background-color: #2081c3;
+}
+
+.navbar-text {
+  color: black;
+}
